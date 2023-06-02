@@ -76,7 +76,7 @@ class _MillInfoState extends State<MillInfo> {
                             alignment: Alignment.bottomLeft,
                             child: TextButton(onPressed: (){
                               dynamic route = widget.page;
-                              nextScreenReplace(context,  widget.page);
+                              //nextScreenReplace(context,  widget.page);
                             },
                              child: const Text("Read more",
                              style: TextStyle(
