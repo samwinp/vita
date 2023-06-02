@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'bar_graph.dart';
+import 'package:graph/bargraph/bar_graph.dart';
 
 void main() {
   runApp(const MaterialApp(home: GraphPage()));
@@ -81,7 +81,27 @@ class _GraphPageState extends State<GraphPage> {
               ],
             ),
           ),
-          const CalculationWidget()
+          Container(
+  margin: const EdgeInsets.symmetric(horizontal: 10.0),
+  decoration: BoxDecoration(
+    border: Border.all(color: Colors.grey),
+    borderRadius: BorderRadius.circular(8.0),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.grey.withOpacity(0.5),
+        spreadRadius: 2,
+        blurRadius: 5,
+        offset: Offset(0, 3), // changes the position of the shadow
+      ),
+    ],
+  ),
+  child: const Card(
+    child: Padding(
+      padding: EdgeInsets.all(12.0),
+      child: CalculationWidget(),
+    ),
+  ),
+)
         ],
       ),
     );
@@ -185,12 +205,13 @@ class _CalculationWidgetState extends State<CalculationWidget> {
                 children: [
                   const Text(
                     'Result:',
-                    style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 16),
                   Text(
                     'Generated Energy per Panel: $_generatedEnergy kW per year',
-                    style: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -217,12 +238,13 @@ class _CalculationWidgetState extends State<CalculationWidget> {
                 const SizedBox(height: 16),
                 const Text(
                   'Result:',
-                  style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 16),
                 Text(
                   'Panels Needed: $_panelsNeeded',
-                  style: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -248,12 +270,13 @@ class _CalculationWidgetState extends State<CalculationWidget> {
                 const SizedBox(height: 16),
                 const Text(
                   'Result:',
-                  style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 16),
                 Text(
                   'Energy Generated in Land Area: $_energyNeeded kW per year',
-                  style: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
