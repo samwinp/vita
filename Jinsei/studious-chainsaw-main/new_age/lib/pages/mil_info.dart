@@ -28,8 +28,8 @@ class _MillInfoState extends State<MillInfo> {
                   width: 180,
                   height: 160,
                   decoration:  BoxDecoration(
-                    border: Border.all(width: 8, color: Color(0xff19906A), ),
-                    color: Color(0xff19906A),
+                    border: Border.all(width: 8, color: Color.fromARGB(255, 246, 248, 247), ),
+                    color: Color.fromARGB(255, 250, 252, 251),
                     borderRadius: BorderRadius.circular(12),
                   ),
 
@@ -51,7 +51,7 @@ class _MillInfoState extends State<MillInfo> {
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-
+                          color: Color.fromARGB(255, 99, 98, 98),
                           ),
                         ),
                       ),
@@ -61,7 +61,7 @@ class _MillInfoState extends State<MillInfo> {
                         child: Text(widget.millinfo,
                         style: const TextStyle(
                           fontSize: 14,
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 118, 117, 117),
                         ),
                         ),
                       ),
@@ -80,7 +80,7 @@ class _MillInfoState extends State<MillInfo> {
                             },
                              child: const Text("Read more",
                              style: TextStyle(
-                              color: Colors.red,
+                              color: Color.fromARGB(255,255, 137, 63),
                              ),
                              ),
                             ),
