@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:new_age/chart/mapbar_gaph.dart';
 import 'package:new_age/pages/HomePage.dart';
 import 'package:new_age/pages/Landing_page.dart';
 import 'package:new_age/pages/api.dart';
@@ -67,3 +68,5 @@ class _MyAppState extends State<MyApp> {
 //  LandingPage(),
 
 // _isSingnedIn ? MyWidget() :
+
+// LandingPage()

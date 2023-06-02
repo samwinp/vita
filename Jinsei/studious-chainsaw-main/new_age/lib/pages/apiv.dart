@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 
@@ -19,6 +20,10 @@ class Apiv extends StatefulWidget {
 }
 
 class _ApivState extends State<Apiv> {
+  var dis = "";
+  var dis2 = "";
+  List<double> numbers= [];
+
   // this is the code to make a post requets
   Future<String?> getData() async {
   print("${widget.lat} latitude and ${widget.lon}");
@@ -29,6 +34,15 @@ class _ApivState extends State<Apiv> {
     final responseJson = jsonDecode(response.body);   
     var newValue = responseJson;
     print("${newValue} there is no shit");  
+    RegExp regExp = RegExp(r'(\d+(?:\.\d+)?)'); // Regular expression to match numbers
+     numbers = regExp.allMatches(newValue.toString()).map((match) => double.parse(match.group(0)!)).toList();
+      print(numbers[0]);
+      var val1 = numbers[0]; // 
+      var val2 = numbers[1];
+    setState(() {
+       dis = val1.toString();
+       dis2 = val2.toString();
+     });
 
     //end of extra code
  
@@ -49,15 +63,26 @@ class _ApivState extends State<Apiv> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("vaibhav"),),
-      body: Column(
-        children: <Widget>[
-          TextButton.icon(
-            onPressed: (){getData();}, 
-          icon: Icon(Icons.mail), 
-          label: Text('call api')
-          ),
-          TextButton(onPressed: (){nextScreenReplace(context, MapScreen());}, child: Text("return back"))
-        ],
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            TextButton.icon(
+              onPressed: (){getData();}, 
+            icon: Icon(Icons.mail), 
+            label: Text('call api')
+            ),
+            TextButton(onPressed: (){nextScreenReplace(context, MapScreen());}, child: Text("return back")),
+            Container(
+              child: Column(
+                children: [
+                  //make the container over here 
+                 Text("${dis}"),
+                 Text("${dis2}"),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

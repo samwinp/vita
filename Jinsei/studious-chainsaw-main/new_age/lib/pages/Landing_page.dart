@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_age/chart/mapbar_gaph.dart';
 import 'package:new_age/pages/HomePage.dart';
 import 'package:new_age/pages/login_page.dart';
 import 'package:new_age/pages/maptest_page.dart';
@@ -21,7 +22,7 @@ class _LandingPageState extends State<LandingPage> {
   static List<Widget> _widgetOption = <Widget>[
     const HomePage(),// this is perfect no need to change
     MapScreen(),// this is done temp it has to changed to map soon
-    ContactPage()// this has to be changes to list of hospital
+    GraphPage()// this has to be changes to list of hospital
   ];
 
   void _onItemTapped(int index){
