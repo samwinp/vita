@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.fromLTRB(12, 12, 12, 8),
               child: Card(
-                color: Color(0xFF307A27),
+                color: Color.fromARGB(255, 249, 211, 171),
                 elevation: 4,
                 child: Container(
                   decoration: BoxDecoration(
@@ -52,10 +52,10 @@ class _HomePageState extends State<HomePage> {
                       end: Alignment.topLeft,
                       begin: Alignment(0.8, 1),
                       colors: <Color>[
-                        Color(0xff19906A),
-                        Color(0xff158368),
-                        Color(0xff0D7066),
-                        Color(0xff015A62),
+                        Color.fromARGB(255, 255, 165, 109),
+                        Color.fromARGB(255, 251, 179, 134),
+                        Color.fromARGB(255, 255, 199, 167),
+                        Color.fromARGB(255, 249, 217, 195),
                       ], // Gradient from https://learnui.design/tools/gradient-generator.html
                       tileMode: TileMode.mirror,
                     ),
