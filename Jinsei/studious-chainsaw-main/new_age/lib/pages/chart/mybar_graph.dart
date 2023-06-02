@@ -1,32 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:graph/bargraph/bar_graph.dart';
-
-void main() {
-  runApp(const MaterialApp(home: GraphPage()));
-}
+import 'bar_graph.dart';
 
 class GraphPage extends StatefulWidget {
-  const GraphPage({Key? key}) : super(key: key);
+  final List<double> months;
+
+  const GraphPage({Key? key, required this.months}) : super(key: key);
 
   @override
   State<GraphPage> createState() => _GraphPageState();
 }
 
 class _GraphPageState extends State<GraphPage> {
-  List<double> months = [
-    2.0,
-    4.1,
-    1.4,
-    7.5,
-    5.7,
-    4.2,
-    2.7,
-    6.3,
-    4.2,
-    5.8,
-    2.3,
-    4.2
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +54,7 @@ class _GraphPageState extends State<GraphPage> {
                           ),
                         ),
                         Expanded(
-                          child: MyBarGraph(monthlyEnergyGenerated: months),
+                          child: MyBarGraph(monthlyEnergyGenerated: widget.months),
                         ),
                       ],
                     ),
@@ -91,7 +76,7 @@ class _GraphPageState extends State<GraphPage> {
         color: Colors.grey.withOpacity(0.5),
         spreadRadius: 2,
         blurRadius: 5,
-        offset: Offset(0, 3), // changes the position of the shadow
+        offset: const Offset(0, 3), // changes the position of the shadow
       ),
     ],
   ),
@@ -139,8 +124,8 @@ class _CalculationWidgetState extends State<CalculationWidget> {
 
   void calculateGeneratedEnergy(double GHI) {
     setState(() {
-      double energyPerPanel = GHI * area * efficiency * (1 - loss) * 365;
-      _generatedEnergy = energyPerPanel;
+      double energyPerPanel = (GHI * area * efficiency * (1 - loss) * 365)/1000;
+      _generatedEnergy = double.parse(energyPerPanel.toStringAsFixed(6));
     });
   }
 
@@ -154,7 +139,8 @@ class _CalculationWidgetState extends State<CalculationWidget> {
   void calculateEnergyNeeded(double GHI, double landArea) {
     setState(() {
       double energyPerPanel = _generatedEnergy;
-      _energyNeeded = (landArea / area).round() * energyPerPanel * 0.70;
+      double energy = ((landArea*4046.856 / area).round() * energyPerPanel * 0.70);
+      _energyNeeded = double.parse(energy.toStringAsFixed(6));
     });
   }
 
@@ -209,7 +195,7 @@ class _CalculationWidgetState extends State<CalculationWidget> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Generated Energy per Panel: $_generatedEnergy kW per year',
+                    'Generated Energy per Panel: $_generatedEnergy MW per year',
                     style: const TextStyle(
                         fontSize: 16, fontWeight: FontWeight.bold),
                   ),
@@ -231,7 +217,7 @@ class _CalculationWidgetState extends State<CalculationWidget> {
                     calculatePanelsNeeded(_generatedEnergy, requiredEnergy);
                   },
                   decoration: const InputDecoration(
-                    labelText: 'Required Energy',
+                    labelText: 'Required Energy in MW',
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -253,7 +239,7 @@ class _CalculationWidgetState extends State<CalculationWidget> {
           if (_selectedCalculation == CalculationType.EnergyNeeded)
             Column(
               children: [
-                const Text('Enter Land Area (m²)'),
+                const Text('Enter Land Area (Acres)'),
                 const SizedBox(height: 16),
                 TextField(
                   controller: _landAreaController,
@@ -274,7 +260,7 @@ class _CalculationWidgetState extends State<CalculationWidget> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Energy Generated in Land Area: $_energyNeeded kW per year',
+                  'Energy Generated in Land Area: $_energyNeeded MW per year',
                   style: const TextStyle(
                       fontSize: 16, fontWeight: FontWeight.bold),
                 ),
