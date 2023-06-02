@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "396402162585",
+    "project_id": "solar-85e1c",
+    "storage_bucket": "solar-85e1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396402162585:android:01cf9f430ab56465d2b108",
+        "android_client_info": {
+          "package_name": "com.example.new_age"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396402162585-9aqh8vgt7huukan353u738b4p6g3fn9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1J6xizqBGLXnpViwux9PuTD2ZhJjEnJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396402162585-9aqh8vgt7huukan353u738b4p6g3fn9o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
