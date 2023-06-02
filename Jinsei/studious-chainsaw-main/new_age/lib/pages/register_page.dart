@@ -67,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   const SizedBox(height: 0,),
                   const Center(
-                  child:Text("EURUS",
+                  child:Text("Vita",
                    style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 42,

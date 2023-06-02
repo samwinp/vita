@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 SizedBox(height: 10),
                                 Text(
-                                  'Wind energy accounts for 6.59% of the power generated worldwide!',
+                                  'Renewable energy accounts for 1/4th of the energy supply in India ',
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.white,
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                           Container(
                             width: 100,
                             height: 100,
-                            child: Lottie.asset("assets/windmill-icon.json"),
+                            //child: Lottie.asset("assets/windmill-icon.json"),
                           ),
                         ],
                       ),
@@ -157,9 +157,9 @@ class _HomePageState extends State<HomePage> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children:  [
-                    MillInfo(millname: "Wind power",millinfo: "The total installed wind power capacity was 42.633 GW" , imagePath: "assets/wind-power.json", page: ReadMore(keys: '2', heading: "Energy by Wind-power",)),
-                    MillInfo(millname: "Why us",millinfo: "Wind's variability makes consistent electricity generation challenging" , imagePath: "assets/disadvantages.json", page: ReadMore(keys: "1",heading: "Why Us?",)),
-                    MillInfo(millname: "Facts",millinfo: "Wind turbines can generate electricity for up to 70% to 90% of the time" , imagePath: "assets/facts.json", page: ReadMore(keys: '3',heading:"Facts on Windmill")),
+                    MillInfo(millname: "Solar power",millinfo: "The total installed solar power capacity was 42.633 GW" , imagePath: "assets/wind-power.json", page: ReadMore(keys: '2', heading: "Energy by Wind-power",)),
+                    MillInfo(millname: "Why us",millinfo: "Solar's variability makes consistent electricity generation challenging" , imagePath: "assets/disadvantages.json", page: ReadMore(keys: "1",heading: "Why Us?",)),
+                    MillInfo(millname: "Facts",millinfo: "Solar can generate electricity for up to 70% to 90% of the time" , imagePath: "assets/facts.json", page: ReadMore(keys: '3',heading:"Facts on Windmill")),
                   ],
                 ),
               ),
