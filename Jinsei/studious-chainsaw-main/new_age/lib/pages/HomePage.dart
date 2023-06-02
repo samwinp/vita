@@ -86,9 +86,9 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 SizedBox(height: 10),
                                 Text(
-                                  'Wind energy accounts for 6.59% of the power generated worldwide!',
+                                  'Renewable energy accounts for 1/4th of the energy supply in India ',
                                   style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 16,
                                     color: Colors.white,
                                     fontFamily: 'poppins',
                                   ),
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                           Container(
                             width: 100,
                             height: 100,
-                            child: Lottie.asset("assets/windmill-icon.json"),
+                            child: Lottie.asset("assets/suncard.json"),
                           ),
                         ],
                       ),
@@ -112,14 +112,29 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 40,),
             Container(
+              decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    gradient: const LinearGradient(
+                      end: Alignment.topRight,
+                      begin: Alignment(0.8, 1),
+                      colors: <Color>[
+                        Color(0xff19906A),
+                        Color(0xff158368),
+                        Color(0xff0D7066),
+                        Color(0xff015A62),
+                      ], // Gradient from https://learnui.design/tools/gradient-generator.html
+                      tileMode: TileMode.mirror,
+                    ),
+                  ),
               height: 80,
               width: 200,
-              decoration: BoxDecoration(
-                color: Color(0xffFFB84C),
-                borderRadius: BorderRadius.circular(10),
-              ),
+              // decoration: BoxDecoration(
+              //   color: Color(0xffFFB84C),
+              //   borderRadius: BorderRadius.circular(10),
+              // ),
               child: TextButton(
                 style: TextButton.styleFrom(
+
                   primary: Colors.white,
                   padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
                   textStyle: const TextStyle(fontSize: 20),
@@ -157,9 +172,9 @@ class _HomePageState extends State<HomePage> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children:  [
-                    MillInfo(millname: "Wind power",millinfo: "The total installed wind power capacity was 42.633 GW" , imagePath: "assets/wind-power.json", page: ReadMore(keys: '2', heading: "Energy by Wind-power",)),
-                    MillInfo(millname: "Why us",millinfo: "Wind's variability makes consistent electricity generation challenging" , imagePath: "assets/disadvantages.json", page: ReadMore(keys: "1",heading: "Why Us?",)),
-                    MillInfo(millname: "Facts",millinfo: "Wind turbines can generate electricity for up to 70% to 90% of the time" , imagePath: "assets/facts.json", page: ReadMore(keys: '3',heading:"Facts on Windmill")),
+                    MillInfo(millname: "Solar power",millinfo: "The total installed solar power capacity was 42.633 GW" , imagePath: "assets/wind-power.json", page: ReadMore(keys: '2', heading: "Energy by Wind-power",)),
+                    MillInfo(millname: "Why us",millinfo: "Solar's variability makes consistent electricity generation challenging" , imagePath: "assets/disadvantages.json", page: ReadMore(keys: "1",heading: "Why Us?",)),
+                    MillInfo(millname: "Facts",millinfo: "Solar can generate electricity for up to 70% to 90% of the time" , imagePath: "assets/facts.json", page: ReadMore(keys: '3',heading:"Facts on Windmill")),
                   ],
                 ),
               ),

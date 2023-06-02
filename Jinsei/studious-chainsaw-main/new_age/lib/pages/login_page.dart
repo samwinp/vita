@@ -72,10 +72,11 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const Center(
                   child: Text(
-                    "Eurus",
+                    "Vita",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 42,
+                      color: Color.fromARGB(255, 39,127,138)
                     ),
                   ),
                 ),
@@ -87,6 +88,8 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
+                    //color: Color.fromARGB(255, 254, 181, 34)
+                    color: Color.fromARGB(255, 39,127,138)
                   ),
                 ),
                 const SizedBox(
@@ -151,7 +154,8 @@ class _LoginPageState extends State<LoginPage> {
                   width: double.infinity,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromRGBO(164, 188, 146, 1),
+                      backgroundColor: Color.fromRGBO(164, 188, 146, 1),
+                      
                       ),
                       onPressed: () {
                         // add the sigin in function

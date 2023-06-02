@@ -48,7 +48,7 @@ class ContactPage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text('eurushacktofuture@gmail.com'),
+                  Text('vita@gmail.com'),
                 ],
               ),
             ),
