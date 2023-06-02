@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:new_age/pages/api.dart';
 import 'package:new_age/pages/choose_location.dart';
-import 'package:new_age/pages/delete.dart';
+import 'package:new_age/pages/apiv.dart';
 import 'package:new_age/widgets/widgets.dart';
 
 class MapScreen extends StatefulWidget {

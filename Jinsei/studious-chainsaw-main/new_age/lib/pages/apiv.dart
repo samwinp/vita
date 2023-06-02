@@ -3,6 +3,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:new_age/pages/maptest_page.dart';
+import 'package:new_age/widgets/widgets.dart';
 
 class Apiv extends StatefulWidget {
   late double lat;
@@ -47,8 +49,15 @@ class _ApivState extends State<Apiv> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("vaibhav"),),
-      body: Container(
-        child: TextButton.icon(onPressed: (){getData();}, icon: Icon(Icons.mail), label: Text('call api'))
+      body: Column(
+        children: <Widget>[
+          TextButton.icon(
+            onPressed: (){getData();}, 
+          icon: Icon(Icons.mail), 
+          label: Text('call api')
+          ),
+          TextButton(onPressed: (){nextScreenReplace(context, MapScreen());}, child: Text("return back"))
+        ],
       ),
     );
   }

@@ -36,7 +36,7 @@ class _PickLocationState extends State<PickLocation> {
                icon: Icon(Icons.cancel)),
 
               IconButton(onPressed: (){
-                nextScreenReplace(context, ApiSerivce(lat: widget.latitude, lon: widget.longitude));
+                // nextScreenReplace(context, ApiSerivce(lat: widget.latitude, lon: widget.longitude));
               },
                icon: Icon(Icons.select_all))
             ],
