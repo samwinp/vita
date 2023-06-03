@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:new_age/pages/Landing_page.dart';
+import 'package:new_age/widgets/widgets.dart';
 import 'bar_graph.dart';
 
 class GraphPage extends StatefulWidget {
   final List<double> data;
+  final double ghi;
 
-  const GraphPage({Key? key, required this.data}) : super(key: key);
+  const GraphPage({Key? key, required this.data, required this.ghi})
+      : super(key: key);
 
   @override
   State<GraphPage> createState() => _GraphPageState();
@@ -15,7 +19,9 @@ class _GraphPageState extends State<GraphPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("VITA"),
+        backgroundColor: Color.fromARGB(255, 255, 137, 63),
+        title: Text("Solar Feasibility Analysis"),
+        centerTitle: true,
       ),
       body: ListView(
         children: [
@@ -44,9 +50,9 @@ class _GraphPageState extends State<GraphPage> {
                           child: RotatedBox(
                             quarterTurns: 3,
                             child: Text(
-                              'Energy(KWh)',
+                              'Global Horizontal irradiance',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 14,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -81,13 +87,18 @@ class _GraphPageState extends State<GraphPage> {
                 ),
               ],
             ),
-            child: const Card(
+            child: Card(
               child: Padding(
-                padding: EdgeInsets.all(12.0),
-                child: CalculationWidget(),
+                padding: const EdgeInsets.all(12.0),
+                child: CalculationWidget(GHI: widget.ghi),
               ),
             ),
-          )
+          ),
+          TextButton(
+              onPressed: () {
+                nextScreenReplace(context, const LandingPage());
+              },
+              child: const Text("go back"))
         ],
       ),
     );
@@ -105,7 +116,8 @@ enum CalculationType {
 }
 
 class CalculationWidget extends StatefulWidget {
-  const CalculationWidget({Key? key}) : super(key: key);
+  final double GHI;
+  const CalculationWidget({Key? key, required this.GHI}) : super(key: key);
 
   @override
   _CalculationWidgetState createState() => _CalculationWidgetState();
@@ -116,7 +128,6 @@ class _CalculationWidgetState extends State<CalculationWidget> {
       TextEditingController();
   final TextEditingController _landAreaController = TextEditingController();
 
-  double GHI = 5;
   double _generatedEnergy = 0.0;
   int _panelsNeeded = 0;
   double _energyNeeded = 0.0;
@@ -133,17 +144,21 @@ class _CalculationWidgetState extends State<CalculationWidget> {
 
   void calculatePanelsNeeded(double GHI, double requiredEnergy) {
     setState(() {
-      double energyPerPanel = _generatedEnergy;
-      _panelsNeeded = (requiredEnergy / energyPerPanel).round();
+      if (requiredEnergy >= 0) {
+        double energyPerPanel = _generatedEnergy;
+        _panelsNeeded = (requiredEnergy / energyPerPanel).round();
+      }
     });
   }
 
   void calculateEnergyNeeded(double GHI, double landArea) {
     setState(() {
-      double energyPerPanel = _generatedEnergy;
-      double energy =
-          ((landArea * 4046.856 / area).round() * energyPerPanel * 0.70);
-      _energyNeeded = double.parse(energy.toStringAsFixed(6));
+      if (landArea >= 0) {
+        double energyPerPanel = _generatedEnergy;
+        double energy =
+            ((landArea * 4046.856 / area).round() * energyPerPanel * 0.70);
+        _energyNeeded = double.parse(energy.toStringAsFixed(6));
+      }
     });
   }
 
@@ -156,7 +171,7 @@ class _CalculationWidgetState extends State<CalculationWidget> {
 
   @override
   Widget build(BuildContext context) {
-    calculateGeneratedEnergy(GHI);
+    calculateGeneratedEnergy(widget.GHI);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(

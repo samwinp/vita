@@ -6,8 +6,6 @@ class IndividualBar {
   IndividualBar(this.x, this.y);
 }
 
-final double calc = 1.6 * 0.16 * (1 - 0.15);
-
 class BarData {
   final double janEnergyGenerated;
   final double febEnergyGenerated;
@@ -40,18 +38,18 @@ class BarData {
 
   void initializeBarData() {
     barData = [
-      IndividualBar(1, janEnergyGenerated * calc),
-      IndividualBar(2, febEnergyGenerated * calc),
-      IndividualBar(3, marEnergyGenerated * calc),
-      IndividualBar(4, aprEnergyGenerated * calc),
-      IndividualBar(5, mayEnergyGenerated * calc),
-      IndividualBar(6, juneEnergyGenerated * calc),
-      IndividualBar(7, julyEnergyGenerated * calc),
-      IndividualBar(8, augEnergyGenerated * calc),
-      IndividualBar(9, sepEnergyGenerated * calc),
-      IndividualBar(10, octEnergyGenerated * calc),
-      IndividualBar(11, novEnergyGenerated * calc),
-      IndividualBar(12, decEnergyGenerated * calc),
+      IndividualBar(1, janEnergyGenerated),
+      IndividualBar(2, febEnergyGenerated),
+      IndividualBar(3, marEnergyGenerated),
+      IndividualBar(4, aprEnergyGenerated),
+      IndividualBar(5, mayEnergyGenerated),
+      IndividualBar(6, juneEnergyGenerated),
+      IndividualBar(7, julyEnergyGenerated),
+      IndividualBar(8, augEnergyGenerated),
+      IndividualBar(9, sepEnergyGenerated),
+      IndividualBar(10, octEnergyGenerated),
+      IndividualBar(11, novEnergyGenerated),
+      IndividualBar(12, decEnergyGenerated),
     ];
   }
 }
