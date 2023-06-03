@@ -22,7 +22,7 @@ class _LandingPageState extends State<LandingPage> {
   static List<Widget> _widgetOption = <Widget>[
     const HomePage(),// this is perfect no need to change
     MapScreen(),// this is done temp it has to changed to map soon
-    GraphPage()// this has to be changes to list of hospital
+    ContactPage()// this has to be changes to list of hospital
   ];
 
   void _onItemTapped(int index){

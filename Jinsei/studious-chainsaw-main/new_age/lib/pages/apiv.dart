@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:new_age/chart/mapbar_gaph.dart';
 import 'package:new_age/pages/maptest_page.dart';
 import 'package:new_age/widgets/widgets.dart';
 
@@ -20,9 +21,8 @@ class Apiv extends StatefulWidget {
 }
 
 class _ApivState extends State<Apiv> {
-  var dis = "";
-  var dis2 = "";
-  List<double> numbers= [];
+  var data = "";
+  List<double> charisi= [];
 
   // this is the code to make a post requets
   Future<String?> getData() async {
@@ -33,18 +33,35 @@ class _ApivState extends State<Apiv> {
   if (response.statusCode == 200) {
     final responseJson = jsonDecode(response.body);   
     var newValue = responseJson;
-    print("${newValue} there is no shit");  
-    RegExp regExp = RegExp(r'(\d+(?:\.\d+)?)'); // Regular expression to match numbers
-     numbers = regExp.allMatches(newValue.toString()).map((match) => double.parse(match.group(0)!)).toList();
-      print(numbers[0]);
-      var val1 = numbers[0]; // 
-      var val2 = numbers[1];
-    setState(() {
-       dis = val1.toString();
-       dis2 = val2.toString();
-     });
+  
+    // print("${newValue}");
+    data = newValue.toString();
+
+    RegExp regex = RegExp(r'lon:\s*\[(.*?)\]');
+    Match? match = regex.firstMatch(data);
+  
+    String numbersStr = match!.group(1)!;
+    List<double> numbers = numbersStr.split(', ').map(double.tryParse).whereType<double>().toList();
+   print(numbers);
+
+    nextScreenReplace(context,GraphPage(data: numbers));
+
+    // nextScreenReplace(context, GraphPage(months: numbers,));
+      
+    // RegExp regExp = RegExp(r'(\d+(?:\.\d+)?)'); // Regular expression to match numbers
+    //  numbers = regExp.allMatches(newValue.toString()).map((match) => double.parse(match.group(0)!)).toList();
+    //   print(numbers[0]);
+    //   var val1 = numbers[0]; // 
+    //   var val2 = numbers[1];
+    // setState(() {
+    //    dis = val1.toString();
+    //    dis2 = val2.toString();
+    //  });
 
     //end of extra code
+
+
+
  
   }else{
     print("messed up");
@@ -52,38 +69,59 @@ class _ApivState extends State<Apiv> {
 }
 
 
-
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();  
+   
+  }
 
 
 
  //end of code
 
 
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("vaibhav"),),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            TextButton.icon(
-              onPressed: (){getData();}, 
-            icon: Icon(Icons.mail), 
-            label: Text('call api')
-            ),
-            TextButton(onPressed: (){nextScreenReplace(context, MapScreen());}, child: Text("return back")),
-            Container(
-              child: Column(
-                children: [
-                  //make the container over here 
-                 Text("${dis}"),
-                 Text("${dis2}"),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
+    appBar: AppBar(title: Text("vita"),),
+    body: Center(
+      child: Column(children: [
+        Text("loading")
+      ],),
+    )
     );
   }
 }
+
+
+
+
+
+// Scaffold(
+//       appBar: AppBar(title: Text("vaibhav"),),
+//       body: Center(
+//         child: Column(
+//           children: <Widget>[
+//             TextButton.icon(
+//               onPressed: (){getData();}, 
+//             icon: Icon(Icons.mail), 
+//             label: Text('call api')
+//             ),
+//             TextButton(onPressed: (){nextScreenReplace(context, MapScreen());}, child: Text("return back")),
+//             Container(
+//               child: Column(
+//                 children: [
+//                   //make the container over here 
+//                   Text("")
+//                 ],
+//               ),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
