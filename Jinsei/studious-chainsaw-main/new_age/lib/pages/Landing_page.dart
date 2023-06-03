@@ -67,7 +67,7 @@ class _LandingPageState extends State<LandingPage> {
       ),
       ),
       elevation: 0,
-       backgroundColor:Color(0xff015A62),
+       backgroundColor:Color.fromARGB(255,255, 137, 63),
       ),
 
        drawer: Drawer(    
@@ -124,7 +124,7 @@ class _LandingPageState extends State<LandingPage> {
                       }, 
                       icon:const Icon(
                       Icons.cancel,
-                      color: Colors.red,
+                      color: Color.fromARGB(255,255, 137, 63),
                       )
                       ),
                       IconButton(onPressed: (){

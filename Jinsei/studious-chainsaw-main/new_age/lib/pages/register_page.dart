@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:new_age/pages/api.dart';
 import '../helper/helper_function.dart';
 import '../services/auth_services.dart';
@@ -71,6 +72,7 @@ class _RegisterPageState extends State<RegisterPage> {
                    style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 42,
+                    color: Color.fromARGB(255, 253, 140, 71)
                    ),
                   ),
                 ),
@@ -79,12 +81,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
+                  color: Color.fromARGB(255, 253, 140, 71)
                 ),
                 ),
                 const SizedBox(height: 40,),
-                const CircleAvatar(
-                  backgroundImage: AssetImage('assets/vaxi.gif'),
+                CircleAvatar(
                   radius: 50,
+                  backgroundColor: Color.fromARGB(255, 248, 247, 247),
+                  child:  Lottie.asset("assets/solarfront.json"),
                 ),
                 const SizedBox(height: 50,),
                 // this is changes done by pereira
@@ -145,7 +149,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromRGBO(164, 188, 146, 1),
+                  backgroundColor: Color.fromARGB(180, 227, 138, 82),
                   ),
                   onPressed: (){
                     register();
@@ -166,7 +170,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextSpan(
                         text: "Sign In",
                         style: const TextStyle(
-                          color: Color.fromRGBO(164, 188, 146, 1),
+                          color: Color.fromARGB(180, 227, 138, 82),
                           decoration: TextDecoration.underline,
                         ),
                         recognizer: TapGestureRecognizer()..onTap  = () {
