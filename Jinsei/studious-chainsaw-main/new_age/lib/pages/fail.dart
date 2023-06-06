@@ -1,25 +1,45 @@
 import 'package:flutter/material.dart';
 
-class Fail extends StatefulWidget {
-  const Fail({super.key});
+class NotFeasiblePage extends StatelessWidget {
+  const NotFeasiblePage({Key? key}) : super(key: key);
 
-  @override
-  State<Fail> createState() => _FailState();
-}
-
-class _FailState extends State<Fail> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-      child :Text("Wind isn't a viable option :(",
-            style: TextStyle(
-              fontFamily: 'poppins',
-              fontSize: 30,
-              
-              fontWeight: FontWeight.bold,
-              color: Colors.red[400],
-            ),
-    ),);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Solar Farm Feasibility'),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 255,137, 63),
+      ),
+      body: const Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.warning,
+                size: 80,
+                color: Colors.yellow,
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Solar Farm Not Feasible',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'The generated solar energy is insufficient to support a solar farm on this location.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

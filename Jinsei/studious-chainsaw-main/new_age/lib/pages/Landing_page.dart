@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_age/chart/mapbar_gaph.dart';
 import 'package:new_age/pages/HomePage.dart';
 import 'package:new_age/pages/login_page.dart';
 import 'package:new_age/pages/maptest_page.dart';
@@ -66,7 +67,7 @@ class _LandingPageState extends State<LandingPage> {
       ),
       ),
       elevation: 0,
-       backgroundColor:Color(0xff015A62),
+       backgroundColor:Color.fromARGB(255,255, 137, 63),
       ),
 
        drawer: Drawer(    
@@ -123,7 +124,7 @@ class _LandingPageState extends State<LandingPage> {
                       }, 
                       icon:const Icon(
                       Icons.cancel,
-                      color: Colors.red,
+                      color: Color.fromARGB(255,255, 137, 63),
                       )
                       ),
                       IconButton(onPressed: (){

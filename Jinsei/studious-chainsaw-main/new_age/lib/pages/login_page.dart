@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:new_age/pages/HomePage.dart';
 import 'package:new_age/pages/Landing_page.dart';
 import 'package:new_age/pages/api.dart';
@@ -70,13 +71,13 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 0,
                 ),
-                const Center(
+                Center(
                   child: Text(
                     "Vita",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 42,
-                      color: Color.fromARGB(255, 39,127,138)
+                      color: Color.fromARGB(255, 253, 140, 71),
                     ),
                   ),
                 ),
@@ -89,15 +90,16 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                     //color: Color.fromARGB(255, 254, 181, 34)
-                    color: Color.fromARGB(255, 39,127,138)
+                    color: Color.fromARGB(255, 253, 140, 71)
                   ),
                 ),
                 const SizedBox(
                   height: 40,
                 ),
-                const CircleAvatar(
-                  backgroundImage: AssetImage('assets/vaxi.gif'),
+                CircleAvatar(
+                  child:  Lottie.asset("assets/solarfront.json"),
                   radius: 50,
+                  backgroundColor: Color.fromARGB(255, 248, 247, 247),
                 ),
                 const SizedBox(
                   height: 50,
@@ -154,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                   width: double.infinity,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromRGBO(164, 188, 146, 1),
+                      backgroundColor: Color.fromARGB(180, 227, 138, 82),
                       
                       ),
                       onPressed: () {
@@ -166,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                           // add style to the sigin in button
                           fontSize: 16,
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       )),
                 ),
@@ -175,11 +177,12 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Text.rich(TextSpan(
                     text: "Don't have an account?  ",
+                    style: TextStyle(color: Color.fromARGB(255, 108, 108, 108)),
                     children: <TextSpan>[
                       TextSpan(
                         text: "Register here",
                         style: const TextStyle(
-                          color: Color.fromRGBO(164, 188, 146, 1),
+                          color: Color.fromARGB(170, 253, 140, 71),
                           decoration: TextDecoration.underline,
                         ),
                         recognizer: TapGestureRecognizer()
