@@ -9,7 +9,6 @@ import 'package:lottie/lottie.dart';
 import 'readmore.dart';
 import 'contact.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -18,27 +17,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   String userName = '';
-
 
   @override
   void initState() {
-    // TODO: implement initState
+    super.initState();
     HelperFunctions.getUserName().then((value) {
       setState(() {
         userName = value!;
       });
-    }
-    );
+    });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       
       backgroundColor: Colors.white,
-
       body: SingleChildScrollView(
+
         child: Container(
           
           decoration: BoxDecoration(
