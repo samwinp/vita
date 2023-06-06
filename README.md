@@ -13,6 +13,19 @@ Vita is a cross-platform application that simplifies the planning and implementa
 * Land Identification: Identify suitable land for solar farm installations by analyzing factors such as availability, terrain characteristics, and other relevant parameters.
 * Cross-Platform Compatibility: Vita is available on both Android and iOS devices, providing seamless access across platforms.
 
+## Screenshots
+
+<p align="center">
+  <img src="https://github.com/samwinp/vita/assets/107112207/cbdb2391-495a-4155-a385-205e889f14d0" alt="Description of the image" width="300" height="auto" style="border-radius: 8px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+</p>
+
+<p align="center">
+  <img src="https://github.com/samwinp/vita/assets/107112207/23dcd90f-e417-4aa5-93e6-4ff01d004182" alt="Description of the image" width="300" height="auto" style="border-radius: 8px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 20px; margin-bottom: 20px;">
+</p>
+<p align="center">
+  <img src="https://github.com/samwinp/vita/assets/107112207/2eaed52a-0023-4c4c-a32f-60348c30fcfb" alt="Description of the image" width="300" height="auto" style="border-radius: 8px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+</p>
+
 ## Technologies Used:
 Flutter: Front-end development framework for building responsive user interfaces.
 
